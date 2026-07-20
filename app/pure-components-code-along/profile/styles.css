@@ -45,3 +45,19 @@ code {
 ul {
 	padding-inline-start: 20px;
 }
+
+.avatar {
+	margin: 5px;
+	border-radius: 50%;
+}
+.panel {
+	border: 1px solid #aaa;
+	border-radius: 6px;
+	margin-top: 20px;
+	padding: 10px;
+	width: 200px;
+}
+h1 {
+	margin: 5px;
+	font-size: 18px;
+}
