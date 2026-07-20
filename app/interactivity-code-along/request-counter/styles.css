@@ -23,6 +23,7 @@ h2 {
 h3 {
 	margin-top: 0;
 	font-size: 18px;
+	font-weight: bold;
 }
 
 h4 {
@@ -46,4 +47,21 @@ code {
 
 ul {
 	padding-inline-start: 20px;
+}
+
+button {
+	background: lightgray;
+	border-width: 1px;
+	padding: 6px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	width: fit-content;
+}
+
+button:hover {
+	background: rgb(190, 190, 190);
+}
+
+button:active {
+	background: white;
 }
