@@ -1,9 +1,4 @@
 export default function StoryTray({ stories }) {
-	stories.push({
-		id: "create",
-		label: "Create Story",
-	});
-
 	return (
 		<ul>
 			{stories.map((story) => (

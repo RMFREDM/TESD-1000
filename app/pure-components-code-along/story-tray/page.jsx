@@ -10,12 +10,30 @@ const initialStories = [
 
 export default function App() {
 	const [stories, setStories] = useState([...initialStories]);
+	const [hasCreateStory, setHasCreateStory] = useState(false);
 	const time = useTime();
 
 	// HACK: Prevent the memory from growing forever while you read docs.
 	// We're breaking our own rules here.
 	if (stories.length > 100) {
 		stories.length = 100;
+	}
+
+	// handle the addition of new stories
+	function handleStoryAddition(id, label) {
+		const nextStories = [...stories];
+		nextStories.push({
+			id: id,
+			label: label,
+		});
+
+		setStories(nextStories);
+	}
+
+	// add the create story, but only if one does not already exist
+	if (!hasCreateStory) {
+		handleStoryAddition("create", "Create Story");
+		setHasCreateStory(true);
 	}
 
 	return (
