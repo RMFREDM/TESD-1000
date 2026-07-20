@@ -1,32 +1,37 @@
-export default function Home() {
+"use client";
+
+import { useState } from "react";
+
+export default function Challenges() {
 	return (
 		<div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
 			<main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
 				<div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
 					<h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-						This page contains links to assignments.
+						This page contains links to the challenges for the
+						Interactivity Code-Along.
 					</h1>
 
 					<ul>
 						<PageLink
-							href={"/quick-start-code-along"}
-							labelText={"Code-Along:"}
-							linkText={"Quick Start Code-Along"}
+							href={"/interactivity-code-along/request-counter"}
+							labelText={"Challenge:"}
+							linkText={"Fix a Request Counter"}
 						/>
 						<PageLink
-							href={"/tic-tac-toe-code-along"}
-							labelText={"Code-Along:"}
-							linkText={"Tic-Tac-Toe Code-Along"}
+							href={"/interactivity-code-along/state-queue"}
+							labelText={"Challenge:"}
+							linkText={"Implement the State Queue Yourself"}
 						/>
 						<PageLink
-							href={"/pure-components-code-along"}
-							labelText={"Code-Along:"}
-							linkText={"Pure Components Code-Along"}
+							href={"/interactivity-code-along/state-updates"}
+							labelText={"Challenge:"}
+							linkText={"Fix Incorrect State Updates"}
 						/>
 						<PageLink
-							href={"/interactivity-code-along"}
-							labelText={"Code-Along:"}
-							linkText={"Interactivity Code-Along"}
+							href={"/interactivity-code-along/mutation"}
+							labelText={"Challenge:"}
+							linkText={"Find and Fix the Mutation"}
 						/>
 					</ul>
 				</div>
