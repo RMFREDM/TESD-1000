@@ -6,11 +6,8 @@ body {
 	font-family: sans-serif;
 	margin: 20px;
 	padding: 0;
-}
-
-h1 {
-	margin-top: 0;
-	font-size: 22px;
+	background: white;
+	color: black;
 }
 
 h2 {
@@ -44,6 +41,22 @@ code {
 
 ul {
 	padding-inline-start: 20px;
+}
+
+button {
+	background: lightgray;
+	border-width: 1px;
+	padding: 6px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+
+button:hover {
+	background: rgb(190, 190, 190);
+}
+
+button:active {
+	background: white;
 }
 
 .avatar {

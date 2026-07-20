@@ -1,23 +1,20 @@
 import Panel from "./Panel.js";
 import { getImageUrl } from "./utils.js";
 
-let currentPerson;
-
 export default function Profile({ person }) {
-	currentPerson = person;
 	return (
 		<Panel>
-			<Header />
-			<Avatar />
+			<Header currentPerson={person} />
+			<Avatar currentPerson={person} />
 		</Panel>
 	);
 }
 
-function Header() {
+function Header({ currentPerson }) {
 	return <h1>{currentPerson.name}</h1>;
 }
 
-function Avatar() {
+function Avatar({ currentPerson }) {
 	return (
 		<img
 			className="avatar"
