@@ -33,10 +33,20 @@ export default function Board() {
 
 	// display if there was a winner or which player is next
 	const winner = calculateWinner(squares);
+	let status;
+	if (winner) {
+		status = "Winner: " + winner;
+	} else {
+		status = "Next player: " + (xIsNext ? "X" : "O");
+	}
 
-	// return a 3x3 grind of Square components
+	// return a status message and a 3x3 grind of Square components
 	return (
 		<>
+			{/* display the status message */}
+			<div className="status">{status}</div>
+
+			{/* create the game board */}
 			<div className="board-row">
 				<Square
 					value={squares[0]}
