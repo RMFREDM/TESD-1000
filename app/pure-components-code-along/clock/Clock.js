@@ -1,9 +1,19 @@
 export default function Clock({ time }) {
+	// get the current hour
 	const hours = time.getHours();
+
+	// change the className of the h1 based on the time
+	let timeOfDay;
 	if (hours >= 0 && hours <= 6) {
-		document.getElementById("time").className = "night";
+		timeOfDay = "night";
 	} else {
-		document.getElementById("time").className = "day";
+		timeOfDay = "day";
 	}
-	return <h1 id="time">{time.toLocaleTimeString()}</h1>;
+
+	// return the header
+	return (
+		<h1 id="time" className={timeOfDay}>
+			{time.toLocaleTimeString()}
+		</h1>
+	);
 }
