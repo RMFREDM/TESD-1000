@@ -48,6 +48,18 @@ ul {
 	padding-inline-start: 20px;
 }
 
+button {
+	background: lightgray;
+	padding: 6px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	border-width: 1px;
+}
+
+button:active {
+	background: gray;
+}
+
 .square {
 	background: #fff;
 	border: 1px solid #999;

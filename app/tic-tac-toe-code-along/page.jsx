@@ -2,12 +2,64 @@
 
 import { useState } from "react";
 
-// create a 3x3 game board
-export default function Board() {
-	// create a state for the next player and the value of each square
-	const [xIsNext, setXIsNext] = useState(true);
-	const [squares, setSquares] = useState(Array(9).fill(null));
+// create a component to control the game state
+export default function Game() {
+	// create a state for the next player, the move the game is currently on, and the value of each square throughout the game
+	const [history, setHistory] = useState([Array(9).fill(null)]);
+	const [currentMove, setCurrentMove] = useState(0);
+	const xIsNext = currentMove % 2 == 0;
+	const currentSquares = history[currentMove];
 
+	// handle the user making a move
+	function handlePlay(nextSquares) {
+		const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
+		setHistory(nextHistory);
+		setCurrentMove(nextHistory.length - 1);
+	}
+
+	// create a function that allows for travel between different game states
+	function jumpTo(nextMove) {
+		// set the currentMove to the move being jumped to and update who is next accordingly
+		setCurrentMove(nextMove);
+	}
+
+	// map each move to an li with a button to jump to that game state
+	const moves = history.map((squares, move) => {
+		// set the description based on the move number
+		let description;
+		if (move > 0) {
+			description = "Go to move #" + move;
+		} else {
+			description = "Go to game start";
+		}
+
+		// return an li with a button to jump to the move
+		return (
+			<li key={move}>
+				<button onClick={() => jumpTo(move)}>{description}</button>
+			</li>
+		);
+	});
+
+	// display the game
+	return (
+		<div className="game">
+			<div className="game-board">
+				<Board
+					xIsNext={xIsNext}
+					squares={currentSquares}
+					onPlay={handlePlay}
+				/>
+			</div>
+			<div className="game-info">
+				<ol>{moves}</ol>
+			</div>
+		</div>
+	);
+}
+
+// create a 3x3 game board
+function Board({ xIsNext, squares, onPlay }) {
 	// create a function to handle the clicking of the button
 	function handleClick(i) {
 		// log which square was clicked
@@ -27,8 +79,7 @@ export default function Board() {
 		} else {
 			nextSquares[i] = "O";
 		}
-		setXIsNext(!xIsNext);
-		setSquares(nextSquares);
+		onPlay(nextSquares);
 	}
 
 	// display if there was a winner or which player is next
@@ -42,7 +93,7 @@ export default function Board() {
 
 	// return a status message and a 3x3 grind of Square components
 	return (
-		<>
+		<div>
 			{/* display the status message */}
 			<div className="status">{status}</div>
 
@@ -107,7 +158,7 @@ export default function Board() {
 					}}
 				/>
 			</div>
-		</>
+		</div>
 	);
 }
 
