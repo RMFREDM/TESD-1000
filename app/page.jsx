@@ -18,6 +18,11 @@ export default function Home() {
 							labelText={"Code-Along:"}
 							linkText={"Tic-Tac-Toe Code-Along"}
 						/>
+						<PageLink
+							href={"/pure-components-code-along"}
+							labelText={"Code-Along:"}
+							linkText={"Pure Components Code-Along"}
+						/>
 					</ul>
 				</div>
 			</main>
