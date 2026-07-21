@@ -10,7 +10,13 @@ export default function Scoreboard() {
 	});
 
 	function handlePlusClick() {
-		player.score++;
+		// the error here is that the score value is updated, but the component is not re-rendered
+		const nextPlayer = {
+			...player,
+			score: player.score + 1,
+		};
+
+		setPlayer(nextPlayer);
 	}
 
 	function handleFirstNameChange(e) {
@@ -21,7 +27,9 @@ export default function Scoreboard() {
 	}
 
 	function handleLastNameChange(e) {
+		// the error here is that the previous values were not passed in to the new object
 		setPlayer({
+			...player,
 			lastName: e.target.value,
 		});
 	}
