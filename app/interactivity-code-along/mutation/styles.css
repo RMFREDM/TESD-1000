@@ -53,4 +53,6 @@ body {
 }
 select {
 	margin-bottom: 10px;
+	border-width: 1px;
+	width: fit-content;
 }
