@@ -28,6 +28,11 @@ export default function Home() {
 							labelText={"Code-Along:"}
 							linkText={"Interactivity Code-Along"}
 						/>
+						<PageLink
+							href={"/managing-state-code-along"}
+							labelText={"Code-Along:"}
+							linkText={"Managing State Code-Along"}
+						/>
 					</ul>
 				</div>
 			</main>
