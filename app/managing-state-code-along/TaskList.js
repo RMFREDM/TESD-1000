@@ -1,8 +1,11 @@
 "use client";
 
+// imports
 import { useState } from "react";
 
+// create a task list to display each task
 export default function TaskList({ tasks, onChangeTask, onDeleteTask }) {
+	// return an unordered list of tasks, each with a unique key that matches their id
 	return (
 		<ul>
 			{tasks.map((task) => (
@@ -18,6 +21,7 @@ export default function TaskList({ tasks, onChangeTask, onDeleteTask }) {
 	);
 }
 
+// create a task that contains a checkbox to determine completion, a name, an edit button, and a delete button
 function Task({ task, onChange, onDelete }) {
 	const [isEditing, setIsEditing] = useState(false);
 	let taskContent;

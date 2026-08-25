@@ -1,13 +1,17 @@
 "use client";
 
+// imports
 import { useReducer } from "react";
 import AddTask from "./AddTask.js";
 import TaskList from "./TaskList.js";
 import tasksReducer from "./tasksReducer.js";
 
+// create the highest level of the program for managing tasks
 export default function TaskApp() {
+	// create a reducer to manage state
 	const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
 
+	// handle addition of tasks through the reducer
 	function handleAddTask(text) {
 		dispatch({
 			type: "added",
@@ -16,6 +20,7 @@ export default function TaskApp() {
 		});
 	}
 
+	// handle changing of tasks through the reducer
 	function handleChangeTask(task) {
 		dispatch({
 			type: "changed",
@@ -23,6 +28,7 @@ export default function TaskApp() {
 		});
 	}
 
+	// handle deletion of tasks through the reducer
 	function handleDeleteTask(taskId) {
 		dispatch({
 			type: "deleted",
@@ -30,6 +36,7 @@ export default function TaskApp() {
 		});
 	}
 
+	// return and display the task list, along with a header and a button to add more tasks
 	return (
 		<>
 			<h1>Prague itinerary</h1>
@@ -43,6 +50,7 @@ export default function TaskApp() {
 	);
 }
 
+// define the next task id and the set of tasks the program initializes with
 let nextId = 3;
 const initialTasks = [
 	{ id: 0, text: "Visit Kafka Museum", done: true },
