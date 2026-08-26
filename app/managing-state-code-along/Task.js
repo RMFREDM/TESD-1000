@@ -1,8 +1,8 @@
 "use client";
 
 // imports
-import { useContext, useState } from "react";
-import { TasksDispatchContext } from "./TasksContext";
+import { useState } from "react";
+import { useTasksDispatch } from "./TasksContext";
 
 // create a task that contains a checkbox to determine completion, a name, an edit button, and a delete button
 export default function Task({ task }) {
@@ -10,7 +10,7 @@ export default function Task({ task }) {
 	const [isEditing, setIsEditing] = useState(false);
 
 	// get the dispatch function from context
-	const dispatch = useContext(TasksDispatchContext);
+	const dispatch = useTasksDispatch();
 
 	// declare the taskContent
 	let taskContent;

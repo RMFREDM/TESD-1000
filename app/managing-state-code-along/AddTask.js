@@ -1,14 +1,14 @@
 "use client";
 
 // imports
-import { useContext, useState } from "react";
-import { TasksDispatchContext } from "./TasksContext";
+import { useState } from "react";
+import { useTasksDispatch } from "./TasksContext";
 
 // create a function to handle creating new tasks
 export default function AddTask() {
 	// create a state variable to control the task's text and get the dispatch function from context
 	const [text, setText] = useState("");
-	const dispatch = useContext(TasksDispatchContext);
+	const dispatch = useTasksDispatch();
 
 	// return the input and button to create a new task
 	return (
