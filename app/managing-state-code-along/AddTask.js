@@ -1,12 +1,14 @@
 "use client";
 
 // imports
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { TasksDispatchContext } from "./TasksContext";
 
 // create a function to handle creating new tasks
-export default function AddTask({ onAddTask }) {
-	// create a state variable to control the task's text
+export default function AddTask() {
+	// create a state variable to control the task's text and get the dispatch function from context
 	const [text, setText] = useState("");
+	const dispatch = useContext(TasksDispatchContext);
 
 	// return the input and button to create a new task
 	return (
@@ -19,7 +21,13 @@ export default function AddTask({ onAddTask }) {
 			<button
 				onClick={() => {
 					setText("");
-					onAddTask(text);
+
+					// add the new task to the list of tasks
+					dispatch({
+						type: "added",
+						id: nextId++,
+						text: text,
+					});
 				}}
 			>
 				Add
@@ -27,3 +35,6 @@ export default function AddTask({ onAddTask }) {
 		</>
 	);
 }
+
+// define the initial nextId
+let nextId = 3;

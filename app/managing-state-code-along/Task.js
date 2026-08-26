@@ -1,12 +1,16 @@
 "use client";
 
 // imports
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { TasksDispatchContext } from "./TasksContext";
 
 // create a task that contains a checkbox to determine completion, a name, an edit button, and a delete button
-export default function Task({ task, onChange, onDelete }) {
+export default function Task({ task }) {
 	// create a state to track if the task is being edited
 	const [isEditing, setIsEditing] = useState(false);
+
+	// get the dispatch function from context
+	const dispatch = useContext(TasksDispatchContext);
 
 	// declare the taskContent
 	let taskContent;
@@ -18,9 +22,13 @@ export default function Task({ task, onChange, onDelete }) {
 				<input
 					value={task.text}
 					onChange={(e) => {
-						onChange({
-							...task,
-							text: e.target.value,
+						// update the value of the task
+						dispatch({
+							type: "changed",
+							task: {
+								...task,
+								text: e.target.value,
+							},
 						});
 					}}
 				/>
@@ -44,14 +52,26 @@ export default function Task({ task, onChange, onDelete }) {
 				type="checkbox"
 				checked={task.done}
 				onChange={(e) => {
-					onChange({
-						...task,
-						done: e.target.checked,
+					dispatch({
+						type: "changed",
+						task: {
+							...task,
+							done: e.target.checked,
+						},
 					});
 				}}
 			/>
 			{taskContent}
-			<button onClick={() => onDelete(task.id)}>Delete</button>
+			<button
+				onClick={() => {
+					dispatch({
+						type: "deleted",
+						id: task.id,
+					});
+				}}
+			>
+				Delete
+			</button>
 		</label>
 	);
 }
