@@ -33,6 +33,11 @@ export default function Home() {
 							labelText={"Code-Along:"}
 							linkText={"Managing State Code-Along"}
 						/>
+						<PageLink
+							href={"/mini-battleship-assignment"}
+							labelText={"Assignment:"}
+							linkText={"Mini Battleship Assignment"}
+						/>
 					</ul>
 				</div>
 			</main>
