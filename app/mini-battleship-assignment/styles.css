@@ -60,3 +60,11 @@ li {
 	margin: 0;
 	padding: 0;
 }
+
+[name="board"] {
+	border: solid;
+	border-width: 1px;
+}
+
+[name="board-row"] {
+}
