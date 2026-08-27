@@ -1,10 +1,8 @@
 "use state";
 
-import { useState } from "react";
-import Square from "./Square";
-import BoardRow from "./BoardRow";
-
 // imports
+import { useState } from "react";
+import BoardRow from "./BoardRow";
 
 // create a board component that contains a list of squares
 export default function Board() {
@@ -13,13 +11,39 @@ export default function Board() {
 		1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
 	]);
 
+	// create a function to handle clicking on a square
+	function handleClick(squareIndex) {
+		// create the newSquares values and change the clicked square
+		let newSquares = { ...squares };
+		newSquares[squareIndex] = "X";
+
+		// set the value of the squares to the value of newSquares
+		setSquares(newSquares);
+	}
+
 	// return a board of squares
 	return (
 		<div name="board">
-			<BoardRow squares={squares} rowIndex={0}></BoardRow>
-			<BoardRow squares={squares} rowIndex={1}></BoardRow>
-			<BoardRow squares={squares} rowIndex={2}></BoardRow>
-			<BoardRow squares={squares} rowIndex={3}></BoardRow>
+			<BoardRow
+				squares={squares}
+				rowIndex={0}
+				handleClick={handleClick}
+			></BoardRow>
+			<BoardRow
+				squares={squares}
+				rowIndex={1}
+				handleClick={handleClick}
+			></BoardRow>
+			<BoardRow
+				squares={squares}
+				rowIndex={2}
+				handleClick={handleClick}
+			></BoardRow>
+			<BoardRow
+				squares={squares}
+				rowIndex={3}
+				handleClick={handleClick}
+			></BoardRow>
 		</div>
 	);
 }

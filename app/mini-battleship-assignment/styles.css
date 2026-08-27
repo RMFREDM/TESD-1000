@@ -64,7 +64,9 @@ li {
 [name="board"] {
 	border: solid;
 	border-width: 1px;
+	width: fit-content;
 }
 
 [name="board-row"] {
+	width: fit-content;
 }
