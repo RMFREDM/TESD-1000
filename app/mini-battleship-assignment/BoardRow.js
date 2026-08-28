@@ -10,7 +10,7 @@ export default function BoardRow({ squares, rowIndex, handleClick }) {
 
 	// return a row of 4 squares
 	return (
-		<div name="board-row">
+		<div id="board-row">
 			<Square
 				content={squares[rowIndex]}
 				handleClick={() => {
