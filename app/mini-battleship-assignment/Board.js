@@ -8,21 +8,10 @@ import BoardRow from "./BoardRow";
 export default function Board({
 	ship,
 	squares,
-	setSquares,
+	isPlayerTurn,
 	isPlayerBoard = false,
+	handleClick,
 }) {
-	// create a function to handle clicking on a square
-	function handleClick(squareIndex) {
-		// create the newSquares values
-		let newSquares = { ...squares };
-
-		// update the value of the square
-		newSquares[squareIndex] = true;
-
-		// set the value of the squares to the value of newSquares
-		setSquares(newSquares);
-	}
-
 	// return a board of squares
 	return (
 		<div id="board">
@@ -31,6 +20,7 @@ export default function Board({
 				rowIndex={0}
 				handleClick={handleClick}
 				ship={[...ship]}
+				isPlayerTurn={isPlayerTurn}
 				isPlayerBoard={isPlayerBoard}
 			></BoardRow>
 			<BoardRow
@@ -38,6 +28,7 @@ export default function Board({
 				rowIndex={1}
 				handleClick={handleClick}
 				ship={[...ship]}
+				isPlayerTurn={isPlayerTurn}
 				isPlayerBoard={isPlayerBoard}
 			></BoardRow>
 			<BoardRow
@@ -45,6 +36,7 @@ export default function Board({
 				rowIndex={2}
 				handleClick={handleClick}
 				ship={[...ship]}
+				isPlayerTurn={isPlayerTurn}
 				isPlayerBoard={isPlayerBoard}
 			></BoardRow>
 			<BoardRow
@@ -52,6 +44,7 @@ export default function Board({
 				rowIndex={3}
 				handleClick={handleClick}
 				ship={[...ship]}
+				isPlayerTurn={isPlayerTurn}
 				isPlayerBoard={isPlayerBoard}
 			></BoardRow>
 		</div>

@@ -9,6 +9,7 @@ export default function BoardRow({
 	rowIndex,
 	handleClick,
 	ship,
+	isPlayerTurn,
 	isPlayerBoard,
 }) {
 	// ensure each square references the correct index based on the row's index
@@ -27,6 +28,7 @@ export default function BoardRow({
 					rowIndex == ship[1] ||
 					rowIndex == ship[2]
 				}
+				isPlayerTurn={isPlayerTurn}
 				isPlayerSquare={isPlayerBoard}
 			></Square>
 			<Square
@@ -39,6 +41,7 @@ export default function BoardRow({
 					rowIndex + 1 == ship[1] ||
 					rowIndex + 1 == ship[2]
 				}
+				isPlayerTurn={isPlayerTurn}
 				isPlayerSquare={isPlayerBoard}
 			></Square>
 			<Square
@@ -51,6 +54,7 @@ export default function BoardRow({
 					rowIndex + 2 == ship[1] ||
 					rowIndex + 2 == ship[2]
 				}
+				isPlayerTurn={isPlayerTurn}
 				isPlayerSquare={isPlayerBoard}
 			></Square>
 			<Square
@@ -63,6 +67,7 @@ export default function BoardRow({
 					rowIndex + 3 == ship[1] ||
 					rowIndex + 3 == ship[2]
 				}
+				isPlayerTurn={isPlayerTurn}
 				isPlayerSquare={isPlayerBoard}
 			></Square>
 		</div>

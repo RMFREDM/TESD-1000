@@ -78,6 +78,27 @@ export default function Game() {
 		false,
 	]);
 
+	// create a state to alternate the player and opponent turns
+	const [isPlayerTurn, setIsPlayerTurn] = useState(true);
+
+	// create a function to handle clicking on a square
+	function handleClick(squareIndex) {
+		// disable the player's turn
+		setIsPlayerTurn(false);
+
+		// create the newSquares values
+		let newSquares = { ...playerSquares };
+
+		// update the value of the square
+		newSquares[squareIndex] = true;
+
+		// set the value of the squares to the value of newSquares
+		setPlayerSquares(newSquares);
+
+		// run the opponent turn
+		opponentTurn(setIsPlayerTurn, opponentSquares, setOpponentSquares);
+	}
+
 	// return the two game boards
 	return (
 		<>
@@ -86,7 +107,8 @@ export default function Game() {
 				<Board
 					ship={opponentShip}
 					squares={playerSquares}
-					setSquares={setPlayerSquares}
+					isPlayerTurn={isPlayerTurn}
+					handleClick={handleClick}
 				></Board>
 			</div>
 			<div id="player-board">
@@ -94,10 +116,30 @@ export default function Game() {
 				<Board
 					ship={playerShip}
 					squares={opponentSquares}
-					setSquares={setOpponentSquares}
+					isPlayerTurn={isPlayerTurn}
 					isPlayerBoard={true}
+					handleClick={handleClick}
 				></Board>
 			</div>
 		</>
 	);
+}
+
+// create a function to run the opponent's turn
+function opponentTurn(setIsPlayerTurn, opponentSquares, setOpponentSquares) {
+	// create the newSquares values
+	let newSquares = { ...opponentSquares };
+
+	// update the value of the square
+	let squareIndex = Math.round(Math.random() * 15);
+	while (newSquares[squareIndex]) {
+		squareIndex = Math.round(Math.random() * 15);
+	}
+	newSquares[squareIndex] = true;
+
+	// set the value of the squares to the value of newSquares
+	setOpponentSquares(newSquares);
+
+	// enable the player's turn
+	setIsPlayerTurn(true);
 }

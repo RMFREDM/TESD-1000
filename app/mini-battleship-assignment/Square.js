@@ -6,12 +6,13 @@
 export default function Square({
 	hasBeenGuessed,
 	isShip,
+	isPlayerTurn,
 	isPlayerSquare,
 	handleClick,
 }) {
 	// disable the button if it has content
 	let disabled = false;
-	if (hasBeenGuessed || isPlayerSquare) {
+	if (hasBeenGuessed || !isPlayerTurn || isPlayerSquare) {
 		disabled = true;
 	}
 
