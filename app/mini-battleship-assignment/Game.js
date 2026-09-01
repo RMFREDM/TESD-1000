@@ -95,6 +95,9 @@ export default function Game() {
 		// set the value of the squares to the value of newSquares
 		setPlayerSquares(newSquares);
 
+		// check the win condition
+		console.log(checkWinCondition(newSquares, playerShip));
+
 		// run the opponent turn
 		opponentTurn(setIsPlayerTurn, opponentSquares, setOpponentSquares);
 	}
@@ -143,3 +146,6 @@ function opponentTurn(setIsPlayerTurn, opponentSquares, setOpponentSquares) {
 	// enable the player's turn
 	setIsPlayerTurn(true);
 }
+
+// create a function to check if someone has won
+function checkWinCondition(squares, ship) {}
