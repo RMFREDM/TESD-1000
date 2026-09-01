@@ -3,11 +3,26 @@
 // imports
 
 // create a square component
-export default function Square({ content, handleClick }) {
+export default function Square({
+	hasBeenGuessed,
+	isShip,
+	isPlayerSquare,
+	handleClick,
+}) {
 	// disable the button if it has content
 	let disabled = false;
-	if (content != null && content != "B") {
+	if (hasBeenGuessed || isPlayerSquare) {
 		disabled = true;
+	}
+
+	// determine the square's content
+	let content;
+	if (hasBeenGuessed && isShip) {
+		content = "X";
+	} else if (hasBeenGuessed && !isShip) {
+		content = "O";
+	} else if (!hasBeenGuessed && isShip && isPlayerSquare) {
+		content = "B";
 	}
 
 	return (

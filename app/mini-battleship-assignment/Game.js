@@ -29,10 +29,6 @@ const playerShipIndex = Math.round(Math.random() * (possibleShips.length - 1));
 const opponentShipIndex = Math.round(
 	Math.random() * (possibleShips.length - 1),
 );
-let initialOpponentSquares = Array(16);
-[...possibleShips[opponentShipIndex]].forEach((square) => {
-	initialOpponentSquares[square] = "B";
-});
 
 // create a board component that contains a list of squares
 export default function Game() {
@@ -40,15 +36,47 @@ export default function Game() {
 	const [playerShip, setPlayerShip] = useState([
 		...possibleShips[playerShipIndex],
 	]);
-	const [playerSquares, setPlayerSquares] = useState(Array(16));
+	const [playerSquares, setPlayerSquares] = useState([
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+	]);
 
 	// create a state to hold the position of the opponent's ship and squares
 	const [opponentShip, setOpponentShip] = useState([
 		...possibleShips[opponentShipIndex],
 	]);
-	const [opponentSquares, setOpponentSquares] = useState(
-		initialOpponentSquares,
-	);
+	const [opponentSquares, setOpponentSquares] = useState([
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+	]);
 
 	// return the two game boards
 	return (
@@ -67,6 +95,7 @@ export default function Game() {
 					ship={playerShip}
 					squares={opponentSquares}
 					setSquares={setOpponentSquares}
+					isPlayerBoard={true}
 				></Board>
 			</div>
 		</>
