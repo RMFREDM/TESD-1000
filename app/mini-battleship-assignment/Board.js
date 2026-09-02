@@ -1,7 +1,4 @@
-"use state";
-
 // imports
-import { useState } from "react";
 import BoardRow from "./BoardRow";
 
 // create a board component that contains a list of squares

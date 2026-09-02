@@ -1,5 +1,3 @@
-"use state";
-
 // imports
 import Square from "./Square";
 

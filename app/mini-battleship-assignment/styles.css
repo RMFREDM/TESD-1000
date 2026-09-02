@@ -90,3 +90,8 @@ li {
 #square:enabled:hover {
 	background-color: rgb(255, 118, 118);
 }
+
+#game-boards {
+	display: flex;
+	justify-content: space-evenly;
+}

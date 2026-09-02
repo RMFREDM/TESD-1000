@@ -1,7 +1,3 @@
-"use state";
-
-// imports
-
 // create a square component
 export default function Square({
 	hasBeenGuessed,
