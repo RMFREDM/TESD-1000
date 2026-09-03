@@ -11,8 +11,23 @@ export default function Home() {
 					<ul>
 						<PageLink
 							href={"/fix-broken-chat-input"}
-							labelText={"Code-Along:"}
+							labelText={"Challenge:"}
 							linkText={"Fix a Broken Chat Input"}
+						/>
+						<PageLink
+							href={"/fix-component-failing-to-re-render"}
+							labelText={"Challenge:"}
+							linkText={"Fix Component Failing to Re-render"}
+						/>
+						<PageLink
+							href={"/fix-debouncing"}
+							labelText={"Challenge:"}
+							linkText={"Fix Debouncing"}
+						/>
+						<PageLink
+							href={"/read-the-latest-state"}
+							labelText={"Challenge:"}
+							linkText={"Read the Latest State"}
 						/>
 					</ul>
 				</div>
@@ -26,7 +41,7 @@ function PageLink({ href, labelText, linkText }) {
 		<ul className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
 			{labelText}{" "}
 			<a
-				href={"/use-ref-code-along" + href}
+				href={"/useref-code-along" + href}
 				className="font-medium text-zinc-950 dark:text-zinc-50"
 			>
 				{linkText}

@@ -39,7 +39,7 @@ export default function Home() {
 							linkText={"Mini Battleship Assignment"}
 						/>
 						<PageLink
-							href={"/use-ref-code-along"}
+							href={"/useref-code-along"}
 							labelText={"Code-Along:"}
 							linkText={"Use Ref Code-Along"}
 						/>
