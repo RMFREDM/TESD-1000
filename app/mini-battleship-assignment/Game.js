@@ -1,18 +1,26 @@
 "use state";
 
 // imports
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Board from "./Board";
 import { checkWinCondition, opponentTurn, possibleShips } from "./Util";
 
 // create a board component that contains a list of squares
 export default function Game() {
-	// create a state to hold the position of the player's ship and squares
-	const [playerShip, setPlayerShip] = useState([
-		...possibleShips[
-			Math.round(Math.random() * (possibleShips.length - 1))
-		],
-	]);
+	// create a state to hold the position of the player's ship, using the useEffect Hook to prevent Hydration errors
+	const [playerShip, setPlayerShip] = useState([]);
+	useEffect(() => {
+		if (playerShip.length == 0) {
+			const initialPlayerShip = [
+				...possibleShips[
+					Math.round(Math.random() * (possibleShips.length - 1))
+				],
+			];
+			setPlayerShip(initialPlayerShip);
+		}
+	});
+
+	// create a state for the player's squares
 	const [playerSquares, setPlayerSquares] = useState([
 		false,
 		false,
@@ -32,7 +40,7 @@ export default function Game() {
 		false,
 	]);
 
-	// create a state to hold the position of the opponent's ship and squares
+	// create a state to hold the position of the opponent's ship and squares (useEffect is not needed as this does not initially render, preventing a Hydration error)
 	const [opponentShip, setOpponentShip] = useState([
 		...possibleShips[
 			Math.round(Math.random() * (possibleShips.length - 1))
