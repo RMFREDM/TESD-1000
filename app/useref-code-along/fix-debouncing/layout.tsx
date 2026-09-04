@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "Managing State",
+	title: "Use Ref Code-Along",
 };
 
 export default function RootLayout({

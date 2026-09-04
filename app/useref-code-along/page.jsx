@@ -29,6 +29,30 @@ export default function Home() {
 							labelText={"Challenge:"}
 							linkText={"Read the Latest State"}
 						/>
+						<PageLink
+							href={"/play-and-pause-the-video"}
+							labelText={"Challenge:"}
+							linkText={"Play and Pause the Video"}
+						/>
+						<PageLink
+							href={"/focus-the-search-field"}
+							labelText={"Challenge:"}
+							linkText={"Focus the Search Field"}
+						/>
+						<PageLink
+							href={"/scrolling-an-image-carousel"}
+							labelText={"Challenge:"}
+							linkText={"Scrolling an Image Carousel"}
+						/>
+						<PageLink
+							href={
+								"/focus-the-search-field-with-separate-components"
+							}
+							labelText={"Challenge:"}
+							linkText={
+								"Focus the Search Field with Separate Components"
+							}
+						/>
 					</ul>
 				</div>
 			</main>

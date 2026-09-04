@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "Assignments",
-	description: "A set of assignments for TESD-1000",
+	title: "Use Ref Code-Along",
+	description: "Use Ref Code-Along",
 };
 
 export default function RootLayout({
