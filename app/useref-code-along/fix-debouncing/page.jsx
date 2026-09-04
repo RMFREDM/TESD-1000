@@ -1,21 +1,6 @@
 "use client";
 
-let timeoutID;
-
-function DebouncedButton({ onClick, children }) {
-	return (
-		<button
-			onClick={() => {
-				clearTimeout(timeoutID);
-				timeoutID = setTimeout(() => {
-					onClick();
-				}, 1000);
-			}}
-		>
-			{children}
-		</button>
-	);
-}
+import DebouncedButton from "./DebouncedButton";
 
 export default function Dashboard() {
 	return (
