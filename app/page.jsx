@@ -41,7 +41,12 @@ export default function Home() {
 						<PageLink
 							href={"/useref-code-along"}
 							labelText={"Code-Along:"}
-							linkText={"Use Ref Code-Along"}
+							linkText={"useRef Code-Along"}
+						/>
+						<PageLink
+							href={"/useeffect-code-along"}
+							labelText={"Code-Along:"}
+							linkText={"useEffect Code-Along"}
 						/>
 					</ul>
 				</div>
