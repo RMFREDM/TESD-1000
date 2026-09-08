@@ -1,15 +1,21 @@
 "use client";
 
-import SearchButton from "./SearchButton.js";
-import SearchInput from "./SearchInput.js";
+import { useRef } from "react";
 
 export default function Page() {
+	const inputRef = useRef(null);
+
+	// handle clicking on the search button
+	function handleClick() {
+		inputRef.current.focus();
+	}
+
 	return (
 		<>
 			<nav>
-				<SearchButton />
+				<button onClick={handleClick}>Search</button>
 			</nav>
-			<SearchInput />
+			<input placeholder="Looking for something?" ref={inputRef} />
 		</>
 	);
 }

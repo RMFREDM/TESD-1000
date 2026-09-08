@@ -1,9 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function CatFriends() {
 	const [index, setIndex] = useState(0);
+	const catRef = Array(catCount);
+	for (let i = 0; i < catCount; i++) {
+		catRef[i] = useRef(null);
+	}
+
 	return (
 		<>
 			<nav>
@@ -11,8 +16,18 @@ export default function CatFriends() {
 					onClick={() => {
 						if (index < catList.length - 1) {
 							setIndex(index + 1);
+							catRef[index + 1].current.scrollIntoView({
+								behavior: "smooth",
+								block: "nearest",
+								inline: "center",
+							});
 						} else {
 							setIndex(0);
+							catRef[0].current.scrollIntoView({
+								behavior: "smooth",
+								block: "nearest",
+								inline: "center",
+							});
 						}
 					}}
 				>
@@ -22,7 +37,7 @@ export default function CatFriends() {
 			<div>
 				<ul>
 					{catList.map((cat, i) => (
-						<li key={cat.id}>
+						<li key={cat.id} ref={catRef[i]}>
 							<img
 								className={index === i ? "active" : ""}
 								src={cat.imageUrl}
