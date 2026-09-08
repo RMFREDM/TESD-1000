@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "./../styles.css";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -14,7 +14,6 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
 	title: "Use Ref Code-Along",
-	description: "Use Ref Code-Along",
 };
 
 export default function RootLayout({
