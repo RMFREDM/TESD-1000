@@ -10,7 +10,9 @@ export default function Counter() {
 			setCount((c) => c + 1);
 		}
 
-		setInterval(onTick, 1000);
+		const counterInterval = setInterval(onTick, 1000);
+
+		return () => clearInterval(counterInterval);
 	}, []);
 
 	return <h1>{count}</h1>;
