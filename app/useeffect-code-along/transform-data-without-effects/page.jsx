@@ -6,21 +6,10 @@ import { initialTodos, createTodo } from "./todos.js";
 export default function TodoList() {
 	const [todos, setTodos] = useState(initialTodos);
 	const [showActive, setShowActive] = useState(false);
-	const [activeTodos, setActiveTodos] = useState([]);
-	const [visibleTodos, setVisibleTodos] = useState([]);
-	const [footer, setFooter] = useState(null);
 
-	useEffect(() => {
-		setActiveTodos(todos.filter((todo) => !todo.completed));
-	}, [todos]);
-
-	useEffect(() => {
-		setVisibleTodos(showActive ? activeTodos : todos);
-	}, [showActive, todos, activeTodos]);
-
-	useEffect(() => {
-		setFooter(<footer>{activeTodos.length} todos left</footer>);
-	}, [activeTodos]);
+	const activeTodos = todos.filter((todo) => !todo.completed);
+	const visibleTodos = showActive ? activeTodos : todos;
+	const footer = <footer>{activeTodos.length} todos left</footer>;
 
 	return (
 		<>
@@ -28,7 +17,10 @@ export default function TodoList() {
 				<input
 					type="checkbox"
 					checked={showActive}
-					onChange={(e) => setShowActive(e.target.checked)}
+					onChange={(e) => {
+						setShowActive(e.target.checked);
+						// setVisibleTodos(showActive ? activeTodos : todos);
+					}}
 				/>
 				Show only active todos
 			</label>

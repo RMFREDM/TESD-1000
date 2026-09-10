@@ -7,11 +7,13 @@ export default function TodoList() {
 	const [todos, setTodos] = useState(initialTodos);
 	const [showActive, setShowActive] = useState(false);
 	const [text, setText] = useState("");
-	const [visibleTodos, setVisibleTodos] = useState([]);
 
-	useEffect(() => {
-		setVisibleTodos(getVisibleTodos(todos, showActive));
-	}, [todos, showActive]);
+	let visibleTodos;
+	const [lastShowActive, setLastShowActive] = useState(null);
+	if (lastShowActive != showActive) {
+		visibleTodos = getVisibleTodos(todos, showActive);
+		setLastShowActive(showActive);
+	}
 
 	function handleAddClick() {
 		setText("");
