@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "./../styles.css";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -13,9 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "TESD 1000",
-	description:
-		"This page contains links to assignments and code-alongs for TESD 1000",
+	title: "useEffect Code-Along Challenge",
 };
 
 export default function RootLayout({
