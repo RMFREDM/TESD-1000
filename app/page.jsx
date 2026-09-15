@@ -53,6 +53,11 @@ export default function Home() {
 							labelText={"Code-Along:"}
 							linkText={"Effect Lifecycle Code-Along"}
 						/>
+						<PageLink
+							href={"/removing-effect-dependencies-code-along"}
+							labelText={"Code-Along:"}
+							linkText={"Removing Effect Dependencies Code-Along"}
+						/>
 					</ul>
 				</div>
 			</main>
