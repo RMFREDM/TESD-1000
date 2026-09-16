@@ -2,10 +2,6 @@
 
 import { useState } from "react";
 import ChatRoom from "./ChatRoom.js";
-import {
-	createEncryptedConnection,
-	createUnencryptedConnection,
-} from "./chat.js";
 import { showNotification } from "./notifications.js";
 
 export default function App() {
@@ -51,17 +47,7 @@ export default function App() {
 						isDark ? "dark" : "light",
 					);
 				}}
-				createConnection={() => {
-					const options = {
-						serverUrl: "https://localhost:1234",
-						roomId: roomId,
-					};
-					if (isEncrypted) {
-						return createEncryptedConnection(options);
-					} else {
-						return createUnencryptedConnection(options);
-					}
-				}}
+				isEncrypted={isEncrypted}
 			/>
 		</>
 	);

@@ -55,3 +55,8 @@ label {
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
+
+.dark {
+	background: #222;
+	color: #eee;
+}
