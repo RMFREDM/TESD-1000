@@ -4,35 +4,35 @@ export default function Home() {
 			<main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
 				<div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
 					<h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-						This page contains links to the challenges in the Effect
-						Lifecycle Code-Along.
+						This page contains links to the challenges in the Custom
+						Hooks Code-Along.
 					</h1>
 
 					<ul>
 						<PageLink
-							href={"/fix-reconnecting-on-every-keystroke"}
+							href={"/extract-a-usecounter-hook"}
 							labelText={"Challenge:"}
-							linkText={"Fix Reconnecting on Every Keystroke"}
+							linkText={"Extract a useCounter Hook"}
 						/>
 						<PageLink
-							href={"/switch-synchronization-on-and-off"}
+							href={"/make-the-counter-delay-configurable"}
 							labelText={"Challenge:"}
-							linkText={"Switch Synchronization On and Off"}
+							linkText={"Make the Counter Delay Configurable"}
 						/>
 						<PageLink
-							href={"/investigate-a-stale-value-bug"}
+							href={"/extract-useinterval-out-of-usecounter"}
 							labelText={"Challenge:"}
-							linkText={"Investigate a Stale Value Bug"}
+							linkText={"Extract useInterval out of useCounter"}
 						/>
 						<PageLink
-							href={"/fix-a-connection-switch"}
+							href={"/fix-a-resetting-interval"}
 							labelText={"Challenge:"}
-							linkText={"Fix a Connection Switch"}
+							linkText={"Fix a Resetting Interval"}
 						/>
 						<PageLink
-							href={"/populate-a-chain-of-select-boxes"}
+							href={"/implement-a-staggering-movement"}
 							labelText={"Challenge:"}
-							linkText={"Populate a Chain of Select Boxes"}
+							linkText={"Implement a Staggering Movement"}
 						/>
 					</ul>
 				</div>
@@ -46,7 +46,7 @@ function PageLink({ href, labelText, linkText }) {
 		<ul className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
 			{labelText}{" "}
 			<a
-				href={"/effect-lifecycle-code-along" + href}
+				href={"/custom-hooks-code-along" + href}
 				className="font-medium text-zinc-950 dark:text-zinc-50"
 			>
 				{linkText}
