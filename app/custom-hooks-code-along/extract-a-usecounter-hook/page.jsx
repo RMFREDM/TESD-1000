@@ -1,14 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import useCounter from "./useCounter";
 
 export default function Counter() {
-	const [count, setCount] = useState(0);
-	useEffect(() => {
-		const id = setInterval(() => {
-			setCount((c) => c + 1);
-		}, 1000);
-		return () => clearInterval(id);
-	}, []);
+	const count = useCounter();
 	return <h1>Seconds passed: {count}</h1>;
 }
