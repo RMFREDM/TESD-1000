@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function useWpmCalculator() {
 	// declare the prompt
-	const prompt = "The quick brown fox jumps over the lazy dog.";
+	const prompt = "The quick brown fox jumps over the lazy dog";
 
 	// declare the wpm
 	const [wpm, setWpm] = useState("Type the prompt to calculate your WPM.");
@@ -36,17 +36,17 @@ export default function useWpmCalculator() {
 
 		// check if the typed value is the same as the prompt
 		if (newTypedValue == prompt) {
-			let calcualtedWpm = (9 / timeToType) * 60;
+			let calculatedWpm = (9 / timeToType) * 60;
 			console.log(
 				"It took " +
 					timeToType +
 					" seconds to type the prompt, for a total of " +
-					calcualtedWpm +
+					calculatedWpm +
 					" WPM.",
 			);
 
 			// update the wpm
-			setWpm(calcualtedWpm);
+			setWpm(calculatedWpm);
 		}
 	}
 
