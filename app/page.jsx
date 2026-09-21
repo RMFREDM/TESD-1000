@@ -63,6 +63,11 @@ export default function Home() {
 							labelText={"Code-Along:"}
 							linkText={"Custom Hooks Code-Along"}
 						/>
+						<PageLink
+							href={"/typing-speed-calculator-assignment"}
+							labelText={"Assignment:"}
+							linkText={"Typing Speed Calculator Assignment"}
+						/>
 					</ul>
 				</div>
 			</main>
